@@ -119,6 +119,22 @@ DataBatch: data shapes: [(128L, 3L, 224L, 224L)] label shapes: [(128L,)]
 ```
 
 
+在```base_module.py```中通过next一次获取一个batch数据：
+
+```
+>>> train_data
+<mxnet.io.MXDataIter object at 0x7f52df4171d0>
+>>> data_iter = iter(train_data)
+>>> next_data_batch = next(data_iter)
+>>> next_data_batch
+<mxnet.io.DataBatch object at 0x7f52df417450>
+>>> data = next_data_batch.data[0]
+>>> data.shape
+(128L, 3L, 224L, 224L)
+>>>
+```
+
+mx.io.DataBatch中获取的data为什么要通过下标[0]去获取，我也没看明白，只有0号下标，没有1或者更多
 
 ### 使用mx.image读取数据
 
